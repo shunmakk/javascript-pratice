@@ -155,3 +155,55 @@ printList(List);
 
 
 //木探索
+
+// バイナリ木のノードを定義するコンストラクタ
+function TreeNode(val, left, right) {
+    this.val = val === undefined ? 0 : val;
+    this.left = left === undefined ? null : left;
+    this.right = right === undefined ? null : right;
+}
+
+// 与えられた配列を使用してバイナリ木を構築する関数
+const tree = (arr) => {
+    if (!arr || arr.length === 0) return null; // 配列が null または空の場合は null を返す
+
+    let root = new TreeNode(arr.shift()); // 最初の要素を使用してルートノードを作成
+    let nodeQueue = [root]; // ルートノードをキューに追加
+
+    while (arr.length > 0) { // 配列に要素が残っている場合は続行
+        let node = nodeQueue.shift(); // キューからノードを取り出す
+        if (arr.length === 0 || node === undefined) break; // 配列が空になった場合またはノードが未定義の場合は終了
+
+        const leftArr = arr.shift(); // 左側の子ノードの値を取得
+        if (leftArr !== null) { // 左側の子ノードが存在する場合
+            let left = new TreeNode(leftArr); // 新しい左側の子ノードを作成
+            node.left = left; // 親ノードに左側の子ノードを接続
+            nodeQueue.push(left); // 左側の子ノードをキューに追加
+        }
+
+        if (arr.length === 0) break; // 配列が空になった場合は終了
+
+        const rightArr = arr.shift(); // 右側の子ノードの値を取得
+        if (rightArr !== null) { // 右側の子ノードが存在する場合
+            let right = new TreeNode(rightArr); // 新しい右側の子ノードを作成
+            node.right = right; // 親ノードに右側の子ノードを接続
+            nodeQueue.push(right); // 右側の子ノードをキューに追加
+        }
+    }
+
+    return root; // 構築されたバイナリ木のルートノードを返す
+}
+
+// 使用例
+const rootNode = tree([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+
+// ルートノードの値を表示
+console.log("ルートノードの値:", rootNode.val); // 出力: 1
+// 左側の子ノードの値を表示
+console.log(rootNode.left.val); // 出力: 2
+// 右側の子ノードの値を表示
+console.log(rootNode.right.val); // 出力: 3
+// 左側の子ノードの左側の子ノードの値を表示
+console.log(rootNode.left.left.val); // 出力: 4
+// 左側の子ノードの右側の子ノードの値を表示
+console.log(rootNode.left.right.val); // 出力: 5
