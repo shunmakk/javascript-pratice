@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jqueryの学習</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<div id="weather">今日の天気は？</div>
+<input  id="btn1"  type="button"  value="クリック">
+<br>
+<p><input id="fadein_btn" type="button" value="Button" /></p>
+<div id="test_hako">箱</div>
+<br>
+<div id="test_box"></div>
+<br>
+<div id="nobi_box"></div>
+<br>
+
+
+
+<p class="toTop">トップページに移動</p>
+
+</body>
+<script>
+    //jquery要素にクリックイベントを追加する
+    $(function(){
+        $("#btn1").click(function(){
+            $("#weather").html("<strong>晴れ</strong>");
+            $("#weather").css("color", "red");
+        });
+    });
+
+    //要素をフェードインさせる
+    $(function(){
+        $("#test_hako").hide();
+        $("#fadein_btn").click(function(){
+            $("#test_hako").fadeIn(1000);
+        });
+    });
+
+    //animate()で素早く上下に動くボックスを作る
+    $(function(){
+        $("#test_box").click(function(){
+            $("#test_box").animate({top: "125px"}, 1000);
+            $("#test_box").animate({top: "0px"}, 3000);
+        })
+    })
+
+    //animateで伸びるバーを作ってみる
+    $(function(){
+        $("#nobi_box").click(function(){
+            $("#nobi_box").animate({width: "100%"}, 1000);
+        });
+    });
+
+    //トップページに移動
+    $(function(){
+        $(".toTop").click(function(){
+            $('body,html').animate({
+      scrollTop: 0
+    }, 800);
+    return false;
+        });
+    });
+
+
+</script>
+<style>
+#test_box{
+    background-color: rgb(198, 198, 237);
+    height: 100px;
+    width: 100px;
+    position:  relative;
+    border-radius: 50%;
+}
+#nobi_box{
+    background-color: rgb(237, 198, 219);
+    height: 100px;
+    width: 100px;
+    position:  relative;
+}
+.toTop{
+    margin-top: 1000px;
+    display: flex;
+    justify-content: center;
+    background-color: aqua;
+    color: aliceblue;
+    padding: 20px;
+    cursor: pointer;
+}
+
+</style>
+</html>
+
+
+
