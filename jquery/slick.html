@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slick</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+</head>
+<body>
+
+<ul class="items">
+<li><img src="https://plus.unsplash.com/premium_photo-1661962685099-c6a685e6c61d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8JUU2JUIwJUI0JUU1JUI5JUIzfGVufDB8fDB8fHww"/></li>
+<li><img src="https://images.unsplash.com/photo-1572196459043-5c39f99a7555?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8JUU2JUIwJUI0JUU1JUI5JUIzfGVufDB8fDB8fHww"/></li>
+<li><img src="https://images.unsplash.com/photo-1587387119725-9d6bac0f22fb?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8JUU2JUIwJUI0JUU1JUI5JUIzfGVufDB8fDB8fHww"/></li>
+<li><img src="https://plus.unsplash.com/premium_photo-1670967499847-1e5e71157bce?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fCVFNiVCMCVCNCVFNSVCOSVCM3xlbnwwfHwwfHx8MA%3D%3D"/></li>
+</ul>
+    
+</body>
+<script>
+    $(".items").slick({
+        autoplay: true,
+        autoplaySpeed: 4000,
+        infinite: true,
+        fade: true,
+        cssEase: 'linear',
+        dots: true,
+    });
+</script>
+<style>
+.items{
+    max-width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.items li {
+    list-style: none;
+}
+
+.items li img {
+    width: 100%;
+    object-fit: cover;
+}
+</style>
+</html>
