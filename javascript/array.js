@@ -118,3 +118,4 @@ console.log(newArr2);
 //  '+'記号で結合したい時
 var arr10 = [1,2,3,4,5];
 var newArr3 = arr10.join("+");
+console.log(newArr3);
